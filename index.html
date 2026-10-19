@@ -6,8 +6,10 @@
 <title>pipos</title>
 <meta name="description" content="pipos.online">
 <meta name="theme-color" content="#f7f1e6">
-<link rel="icon" href="terra_logo.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="terra_logo.svg">
+<link rel="icon" href="onca-icone.svg" type="image/svg+xml">
+<link rel="icon" href="onca-icone-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="onca-icone-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="onca-icone-180.png">
 <style>
   :root{
     --areia:#f7f1e6; --areia-2:#efe6d6; --cafe:#43302a; --cafe-2:#7e5d3f;
@@ -24,7 +26,9 @@
     -webkit-font-smoothing:antialiased; text-transform:lowercase;
   }
   main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 24px 32px; gap:28px; text-align:center}
-  .logo{width:min(46vw,210px); height:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite}
+  .logos{display:flex; align-items:center; justify-content:center; gap:clamp(18px,6vw,40px)}
+  .logo{width:min(40vw,190px); height:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite}
+  .onca{height:min(38vw,180px); width:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite; animation-delay:-2s}
   @keyframes respira{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.035)}}
   h1{font-size:clamp(38px,9vw,64px); letter-spacing:.14em; font-weight:700; color:var(--cafe); line-height:1}
   h1 .ponto{color:var(--terracota); animation:pisca 2.2s steps(1,end) infinite}
@@ -43,7 +47,10 @@
 </head>
 <body>
 <main>
-  <img class="logo" src="terra_logo.svg" alt="logo do terra">
+  <div class="logos">
+    <img class="logo" src="terra_logo.svg" alt="logo do terra">
+    <img class="onca" src="onca.svg" alt="onça do pipos">
+  </div>
   <div>
     <h1>pipos<span class="ponto">.</span></h1>
   </div>
