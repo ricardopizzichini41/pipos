@@ -26,20 +26,15 @@
     -webkit-font-smoothing:antialiased; text-transform:lowercase;
   }
   main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:48px 24px 32px; gap:28px; text-align:center}
-  .logos{display:flex; align-items:center; justify-content:center; gap:clamp(18px,6vw,40px)}
-  .logo{width:min(40vw,190px); height:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite}
-  .onca{height:min(38vw,180px); width:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite; animation-delay:-2s}
+  .logo{width:min(46vw,210px); height:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite}
   @keyframes respira{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.035)}}
   h1{font-size:clamp(38px,9vw,64px); letter-spacing:.14em; font-weight:700; color:var(--cafe); line-height:1}
   h1 .ponto{color:var(--terracota); animation:pisca 2.2s steps(1,end) infinite}
   @keyframes pisca{0%,55%{opacity:1}56%,100%{opacity:0}}
-  .sub{font-size:15px; color:var(--cafe-2); letter-spacing:.06em}
-  .acoes{display:flex; flex-wrap:wrap; gap:12px; justify-content:center; margin-top:6px}
   .btn{display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:999px; text-decoration:none; font-size:15px; font-weight:600; letter-spacing:.02em; transition:transform .15s ease, box-shadow .15s ease}
   .btn:active{transform:scale(.97)}
   .btn.casa{background:var(--terracota); color:#fff8f3; box-shadow:0 8px 20px rgba(201,65,45,.28)}
   .btn.casa:hover{box-shadow:0 10px 26px rgba(201,65,45,.36)}
-  .btn.ghost{background:transparent; color:var(--cafe-2); border:1.5px solid var(--linha)}
   .btn svg{width:18px; height:18px}
   footer{padding:14px 24px 26px; text-align:center; font-size:12px; color:#a89c8a; letter-spacing:.08em}
   @media (prefers-reduced-motion:reduce){.logo,h1 .ponto{animation:none}}
@@ -47,20 +42,14 @@
 </head>
 <body>
 <main>
-  <div class="logos">
-    <img class="logo" src="terra_logo.svg" alt="logo do terra">
-    <img class="onca" src="onca.svg" alt="onça do pipos">
-  </div>
+  <img class="logo" src="terra_logo.svg" alt="logo do terra">
   <div>
     <h1>pipos<span class="ponto">.</span></h1>
   </div>
-  <div class="acoes">
-    <a class="btn casa" href="https://terra.pipos.online">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z"/></svg>
-      entrar na casa
-    </a>
-    <a class="btn ghost" href="https://terra.pipos.online/dashboard-terra/cameras">câmeras</a>
-  </div>
+  <a class="btn casa" href="casa.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8v9a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z"/></svg>
+    entrar na casa
+  </a>
 </main>
 <footer>pipos.online</footer>
 </body>
