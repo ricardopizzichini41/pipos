@@ -31,6 +31,8 @@
   .marca{font-weight:700; letter-spacing:.14em; color:var(--cafe); font-size:16px}
   .marca .ponto{color:var(--terracota)}
   main{flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:24px 20px 32px; gap:18px}
+  .onca{height:min(34vw,150px); width:auto; filter:drop-shadow(0 10px 24px rgba(126,93,63,.18)); animation:respira 4s ease-in-out infinite}
+  @keyframes respira{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-6px) scale(1.035)}}
   h1{font-size:clamp(26px,6vw,36px); font-weight:700; letter-spacing:.04em; margin-bottom:6px}
   .opcoes{display:grid; gap:14px; width:min(100%,440px)}
   .opcao{display:flex; align-items:center; gap:16px; padding:18px 20px; border-radius:22px; text-decoration:none; color:var(--cafe); background:#fffdf8; border:1.5px solid var(--linha); box-shadow:0 8px 22px rgba(126,93,63,.10); transition:transform .15s ease, box-shadow .15s ease}
@@ -40,8 +42,7 @@
   .icone svg{width:26px; height:26px}
   .opcao.automacao .icone{background:rgba(201,65,45,.12); color:var(--terracota)}
   .opcao.cameras .icone{background:rgba(122,46,53,.10); color:var(--bordo)}
-  .opcao.central .icone{background:#e9dcc3}
-  .opcao.central .icone img{height:40px; width:auto}
+  .opcao.central .icone{background:rgba(126,93,63,.12); color:var(--cafe-2)}
   .texto{display:flex; flex-direction:column; gap:3px; min-width:0}
   .texto b{font-size:17px; font-weight:700}
   .texto span{font-size:13px; color:var(--cafe-2)}
@@ -59,6 +60,7 @@
   <div class="marca">pipos<span class="ponto">.</span></div>
 </header>
 <main>
+  <img class="onca" src="onca.svg" alt="onça do pipos">
   <h1>casa</h1>
   <div class="opcoes">
     <a class="opcao automacao" href="https://terra.pipos.online">
@@ -72,7 +74,7 @@
       <div class="seta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></div>
     </a>
     <a class="opcao central" href="prototipo-central.html">
-      <div class="icone"><img src="onca.svg" alt="onça do pipos"></div>
+      <div class="icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
       <div class="texto"><b>central</b><span>viagens, listas, comer — em construção</span></div>
       <div class="seta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></div>
     </a>
