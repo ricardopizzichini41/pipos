@@ -7,7 +7,7 @@
 body{background:#d9cdb6;font-family:ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--cafe);text-transform:lowercase;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;justify-content:center}
 .app{width:100%;max-width:460px;min-height:100vh;background:var(--areia);display:flex;flex-direction:column;position:relative;box-shadow:0 0 40px rgba(67,48,42,.18)}
 header{display:flex;align-items:center;gap:12px;padding:18px 20px 10px}
-header .onca{width:64px;height:auto}
+header .onca{height:58px;width:auto}
 header h1{font-size:26px;letter-spacing:.12em;font-weight:700}
 header h1 span{color:var(--terra)}
 header .sub{font-size:12px;color:var(--cafe2);letter-spacing:.06em}
@@ -45,8 +45,38 @@ nav button{background:none;border:0;font:inherit;color:var(--cafe2);font-size:11
 nav button b{font-size:20px;line-height:1}
 nav button.on{color:var(--terra);background:#f6d9d2}
 .tag{font-size:10px;letter-spacing:.14em;color:var(--kraft);text-align:center;margin:14px 0 0}
+
+.pes{display:flex;gap:6px;overflow-x:auto;padding:2px 0 10px;scrollbar-width:none}
+.pes button{flex:none;padding:9px 14px;border-radius:999px;border:1.5px solid var(--linha);background:var(--papel);color:var(--cafe);font:inherit;font-size:13px;font-weight:600;cursor:pointer;text-transform:lowercase}
+.pes button.on{background:var(--terra);border-color:var(--terra);color:#fff8f3}
+.campo{width:100%;padding:11px 14px;border-radius:14px;border:1px solid var(--linha);background:var(--papel);color:var(--cafe);font:inherit;font-size:14px;text-transform:none}
+textarea.campo{min-height:76px;resize:vertical;line-height:1.4}
+.form{display:grid;gap:8px;margin-bottom:12px}
+.form .linha{display:flex;gap:8px}.form .linha>*{flex:1}
+.item{display:flex;align-items:flex-start;gap:10px;padding:11px 0;border-bottom:1px solid var(--linha);font-size:14px}
+.item:last-child{border:0}
+.item .chk{width:20px;height:20px;border:2px solid var(--cafe2);border-radius:6px;flex:none;margin-top:1px;cursor:pointer}
+.item.done .chk{background:var(--ok);border-color:var(--ok)}
+.item.done .txt{opacity:.55}.item.done .txt b{text-decoration:line-through}
+.item .txt{flex:1;min-width:0;word-wrap:break-word;text-transform:none}
+.item .txt b{font-weight:600}
+.item .txt a{color:var(--terra);font-size:12px;text-decoration:none}
+.item .x{background:none;border:0;color:var(--kraft);font-size:18px;line-height:1;cursor:pointer;padding:0 2px}
+.vazio{font-size:13px;color:var(--cafe2);text-align:center;padding:14px 0}
+.niv{display:flex;gap:6px}.niv button{flex:1;padding:9px 4px;border-radius:12px;border:1.5px solid var(--linha);background:var(--papel);font:inherit;font-size:12px;color:var(--cafe);cursor:pointer;text-transform:lowercase}
+.niv button.on{border-color:var(--cafe);background:var(--cafe);color:#f6efe2}
+.rec{background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:14px 16px;margin-bottom:10px;border-left:5px solid var(--kraft)}
+.rec.n2{border-left-color:#d99a3c}.rec.n3{border-left-color:var(--terra)}
+.rec.ok{opacity:.55}.rec.ok .t{text-decoration:line-through}
+.rec .top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--cafe2);margin-bottom:6px}
+.rec .t{font-size:15px;line-height:1.45;text-transform:none;word-wrap:break-word}
+.rec .acoes{display:flex;gap:8px;margin-top:10px}
+.rec .acoes button{background:none;border:1px solid var(--linha);border-radius:999px;padding:6px 12px;font:inherit;font-size:12px;color:var(--cafe2);cursor:pointer;text-transform:lowercase}
+.placar{display:flex;gap:10px;margin-bottom:12px}.placar .card{flex:1;margin:0;text-align:center;padding:12px 8px}
+.placar b{display:block;font-size:24px}
+.aviso{font-size:11px;color:var(--kraft);text-align:center;margin:10px 0 0;letter-spacing:.04em}
 </style></head><body><div class="app">
-<header><svg class="onca" xmlns="http://www.w3.org/2000/svg" viewBox="-34 -40 296 212" ><defs><filter id="tinta2" x="-6%" y="-6%" width="112%" height="112%"><feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="5" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.2" xChannelSelector="R" yChannelSelector="G"/></filter></defs><g filter="url(#tinta2)"><clipPath id="corpo2"><path d="M10,78 C10,70 12,66 16,64 C22,58 28,54 36,52 L34,36 L48,50 L56,50 L62,34 L72,50 C82,50 92,48 104,48 C120,50 140,52 160,48 C176,46 190,50 196,60 C202,68 202,78 198,88 C196,94 192,100 190,108 L197,126 C199,133 192,138 186,136 L178,134 L178,112 C176,102 172,98 166,98 L158,98 L152,124 C150,132 140,135 136,133 L138,112 L140,100 C128,102 112,102 100,100 L102,124 C102,132 92,135 86,133 L86,110 L88,100 L80,100 L69,122 C66,130 56,133 51,129 L56,108 L62,96 C56,92 48,90 42,88 C34,92 24,94 14,90 C10,88 10,82 10,78 Z"/></clipPath><g clip-path="url(#corpo)"><path d="M106.3,66.0 Q106.3,66.0 105.9,68.0 Q105.6,69.9 103.1,69.8 Q100.7,69.7 98.7,69.8 Q96.7,69.9 96.0,68.7 Q95.2,67.5 95.3,66.0 Q95.3,64.5 96.3,63.4 Q97.3,62.3 99.1,62.5 Q100.9,62.6 102.5,62.9 Q104.0,63.2 105.2,64.6 Z" fill="#2f2d31"/><path d="M122.3,60.0 Q122.3,60.0 121.7,61.1 Q121.2,62.2 120.0,62.9 Q118.8,63.7 117.3,63.3 Q115.7,62.9 114.2,62.3 Q112.6,61.6 112.7,60.0 Q112.7,58.4 114.0,57.4 Q115.2,56.4 117.1,55.9 Q119.0,55.4 120.0,56.7 Q121.0,58.0 121.7,59.0 Z" fill="#2f2d31"/><path d="M142.0,58.0 Q142.0,58.0 142.3,59.6 Q142.5,61.1 140.7,61.5 Q139.0,61.8 136.7,62.1 Q134.5,62.4 133.4,61.0 Q132.4,59.7 132.0,57.9 Q131.7,56.1 133.1,54.6 Q134.4,53.2 136.7,53.2 Q138.9,53.2 140.3,54.2 Q141.6,55.3 141.8,56.6 Z" fill="#2f2d31"/><path d="M163.1,60.0 Q163.1,60.0 162.1,61.0 Q161.2,62.1 159.9,62.6 Q158.6,63.2 156.8,63.6 Q155.0,64.0 154.2,62.7 Q153.4,61.5 153.7,60.0 Q154.0,58.5 154.7,57.5 Q155.5,56.4 157.1,56.6 Q158.8,56.9 160.9,57.1 Q162.9,57.3 163.0,58.7 Z" fill="#2f2d31"/><path d="M181.7,66.0 Q181.7,66.0 181.9,67.2 Q182.1,68.4 180.6,69.7 Q179.1,71.1 177.6,69.8 Q176.1,68.5 174.8,68.0 Q173.5,67.5 173.2,66.0 Q172.9,64.5 174.2,63.5 Q175.4,62.5 177.1,62.3 Q178.8,62.0 179.9,63.0 Q181.0,64.0 181.4,65.0 Z" fill="#2f2d31"/><path d="M114.1,80.0 Q114.1,80.0 112.9,81.1 Q111.8,82.1 110.4,83.5 Q109.0,84.9 107.3,84.2 Q105.5,83.5 104.9,82.3 Q104.3,81.1 103.3,79.8 Q102.3,78.4 104.2,77.6 Q106.1,76.8 107.4,76.7 Q108.7,76.6 110.1,77.1 Q111.6,77.5 112.8,78.8 Z" fill="#2f2d31"/><path d="M134.8,76.0 Q134.8,76.0 133.3,77.6 Q131.9,79.2 130.4,79.8 Q128.9,80.5 127.3,79.9 Q125.8,79.2 123.6,78.6 Q121.3,78.1 121.4,76.0 Q121.5,73.9 123.4,73.3 Q125.2,72.8 127.2,71.5 Q129.2,70.3 130.8,71.8 Q132.4,73.4 133.6,74.7 Z" fill="#2f2d31"/><path d="M153.8,76.0 Q153.8,76.0 152.8,77.3 Q151.9,78.6 150.4,79.7 Q148.9,80.8 147.3,80.1 Q145.7,79.4 144.5,78.3 Q143.4,77.2 142.6,75.8 Q141.9,74.4 143.6,73.5 Q145.4,72.6 147.3,71.4 Q149.3,70.2 150.5,71.8 Q151.7,73.3 152.7,74.7 Z" fill="#2f2d31"/><path d="M172.5,78.0 Q172.5,78.0 171.8,79.2 Q171.1,80.4 170.0,81.4 Q168.9,82.5 167.3,82.2 Q165.7,81.8 164.6,80.5 Q163.6,79.3 163.3,78.0 Q163.0,76.7 164.4,75.8 Q165.7,74.8 167.3,74.1 Q168.9,73.4 171.1,73.9 Q173.4,74.5 173.0,76.3 Z" fill="#2f2d31"/><path d="M190.2,82.0 Q190.2,82.0 190.1,83.4 Q190.0,84.8 188.4,85.1 Q186.8,85.4 185.4,85.2 Q184.1,85.0 182.6,84.2 Q181.2,83.4 181.8,82.1 Q182.3,80.8 183.0,79.8 Q183.7,78.8 185.3,78.4 Q186.9,78.0 187.7,79.2 Q188.5,80.3 189.3,81.2 Z" fill="#2f2d31"/><path d="M101.0,92.0 Q101.0,92.0 100.4,93.1 Q99.7,94.1 98.2,94.6 Q96.7,95.0 95.2,95.3 Q93.7,95.7 92.8,94.4 Q91.9,93.2 92.2,92.1 Q92.5,91.0 93.3,90.1 Q94.1,89.2 95.5,88.2 Q96.9,87.3 98.0,88.6 Q99.0,89.9 100.0,91.0 Z" fill="#2f2d31"/><path d="M122.8,94.0 Q122.8,94.0 121.9,95.1 Q121.0,96.2 119.8,96.8 Q118.7,97.5 117.4,97.2 Q116.2,96.9 114.5,96.2 Q112.7,95.5 113.5,94.1 Q114.2,92.7 114.9,91.3 Q115.7,89.9 117.4,89.5 Q119.1,89.1 120.7,90.1 Q122.3,91.1 122.6,92.6 Z" fill="#2f2d31"/><path d="M145.5,94.0 Q145.5,94.0 145.3,95.7 Q145.1,97.4 143.1,98.3 Q141.1,99.3 139.4,98.6 Q137.7,97.9 136.3,96.6 Q134.9,95.3 134.8,93.9 Q134.7,92.4 135.7,91.0 Q136.6,89.5 139.0,88.8 Q141.3,88.1 142.4,89.8 Q143.6,91.4 144.5,92.7 Z" fill="#2f2d31"/><path d="M167.6,94.0 Q167.6,94.0 166.4,95.1 Q165.2,96.3 164.1,97.6 Q163.0,98.9 161.3,98.2 Q159.7,97.4 158.2,96.5 Q156.8,95.6 157.2,94.0 Q157.7,92.4 158.8,91.9 Q160.0,91.5 161.4,90.9 Q162.8,90.4 164.2,90.7 Q165.6,91.1 166.6,92.6 Z" fill="#2f2d31"/><path d="M183.5,96.0 Q183.5,96.0 183.1,97.1 Q182.7,98.1 181.6,98.6 Q180.6,99.0 179.3,99.0 Q178.0,99.0 177.5,98.0 Q177.1,96.9 176.3,95.8 Q175.5,94.7 176.7,93.9 Q177.9,93.1 179.3,92.9 Q180.7,92.7 181.8,93.2 Q182.8,93.7 183.2,94.9 Z" fill="#2f2d31"/><path d="M86.6,70.0 Q86.6,70.0 86.5,70.7 Q86.5,71.5 85.5,71.8 Q84.5,72.0 83.6,72.0 Q82.7,71.9 81.8,71.4 Q80.9,70.8 80.6,69.9 Q80.4,69.0 81.3,68.3 Q82.2,67.5 83.4,67.3 Q84.6,67.1 85.4,67.7 Q86.2,68.3 86.4,69.2 Z" fill="#2f2d31"/><path d="M78.6,82.0 Q78.6,82.0 78.5,82.8 Q78.5,83.6 77.5,84.0 Q76.5,84.4 75.5,84.3 Q74.4,84.2 73.2,83.7 Q72.0,83.1 72.4,82.0 Q72.8,80.9 73.5,80.2 Q74.2,79.5 75.4,79.4 Q76.6,79.4 77.4,80.0 Q78.3,80.5 78.5,81.3 Z" fill="#2f2d31"/><path d="M69.3,74.0 Q69.3,74.0 68.7,74.8 Q68.1,75.6 67.4,76.4 Q66.6,77.3 65.3,76.9 Q64.1,76.5 63.9,75.6 Q63.7,74.7 63.6,73.9 Q63.4,73.1 64.0,72.6 Q64.6,72.1 65.5,72.0 Q66.4,71.9 67.1,72.4 Q67.7,72.8 68.5,73.4 Z" fill="#2f2d31"/><path d="M62.4,100.0 Q62.4,100.0 62.0,100.6 Q61.5,101.1 60.9,101.4 Q60.4,101.6 59.5,102.0 Q58.5,102.3 58.2,101.4 Q57.8,100.5 57.7,99.9 Q57.5,99.3 57.9,98.5 Q58.3,97.7 59.5,97.5 Q60.6,97.3 61.5,98.0 Q62.4,98.7 62.4,99.3 Z" fill="#2f2d31"/><path d="M64.8,116.0 Q64.8,116.0 64.6,116.7 Q64.4,117.4 63.4,117.9 Q62.4,118.3 61.3,118.3 Q60.3,118.2 59.6,117.6 Q59.0,116.9 59.2,116.0 Q59.5,115.2 59.9,114.4 Q60.3,113.7 61.4,114.0 Q62.4,114.3 63.1,114.6 Q63.7,114.9 64.2,115.5 Z" fill="#2f2d31"/><path d="M95.4,110.0 Q95.4,110.0 94.8,110.8 Q94.2,111.7 93.4,112.4 Q92.6,113.1 91.6,112.9 Q90.5,112.6 90.0,111.7 Q89.5,110.9 89.4,110.0 Q89.3,109.1 90.0,108.5 Q90.6,107.9 91.6,107.8 Q92.5,107.7 93.2,108.3 Q93.8,108.9 94.6,109.4 Z" fill="#2f2d31"/><path d="M101.1,120.0 Q101.1,120.0 100.6,120.7 Q100.2,121.4 99.3,121.7 Q98.4,122.0 97.6,121.8 Q96.9,121.7 96.5,121.1 Q96.2,120.6 96.1,120.0 Q96.0,119.4 96.3,118.6 Q96.6,117.8 97.5,117.7 Q98.5,117.7 99.4,118.0 Q100.3,118.4 100.7,119.2 Z" fill="#2f2d31"/><path d="M133.7,110.0 Q133.7,110.0 133.2,111.0 Q132.8,112.0 131.7,112.2 Q130.6,112.4 129.4,112.6 Q128.3,112.9 127.3,111.9 Q126.3,111.0 126.8,110.0 Q127.4,109.1 127.6,108.3 Q127.9,107.4 129.2,107.1 Q130.6,106.8 131.2,107.7 Q131.7,108.6 132.7,109.3 Z" fill="#2f2d31"/><path d="M146.2,120.0 Q146.2,120.0 146.1,120.7 Q145.9,121.5 145.2,121.7 Q144.4,121.9 143.5,122.0 Q142.6,122.1 141.9,121.5 Q141.2,120.9 141.5,120.1 Q141.9,119.3 142.0,118.5 Q142.1,117.7 143.3,117.7 Q144.5,117.7 145.2,118.2 Q145.8,118.7 146.0,119.4 Z" fill="#2f2d31"/><path d="M175.3,112.0 Q175.3,112.0 174.7,112.7 Q174.1,113.5 173.3,113.9 Q172.5,114.4 171.6,114.3 Q170.6,114.1 169.3,113.6 Q167.9,113.0 168.4,112.1 Q168.8,111.1 169.8,110.7 Q170.7,110.2 171.7,109.4 Q172.7,108.6 173.9,109.4 Q175.1,110.3 175.2,111.1 Z" fill="#2f2d31"/><path d="M193.5,122.0 Q193.5,122.0 192.6,122.7 Q191.8,123.4 191.1,123.8 Q190.5,124.1 189.5,124.1 Q188.5,124.1 187.9,123.5 Q187.2,123.0 187.6,122.2 Q188.0,121.5 188.4,120.9 Q188.8,120.4 189.7,119.9 Q190.5,119.4 191.5,119.8 Q192.5,120.1 193.0,121.1 Z" fill="#2f2d31"/><path d="M116.3,70.0 Q116.3,70.0 116.0,70.7 Q115.7,71.3 115.0,71.6 Q114.4,71.8 113.6,71.6 Q112.9,71.4 112.5,71.0 Q112.2,70.6 111.8,69.9 Q111.4,69.2 112.0,68.6 Q112.5,68.0 113.4,68.3 Q114.3,68.5 115.0,68.6 Q115.7,68.7 116.0,69.4 Z" fill="#2f2d31"/><path d="M154.7,66.0 Q154.7,66.0 154.3,66.7 Q153.9,67.3 153.1,67.5 Q152.4,67.7 151.5,67.8 Q150.6,67.9 150.2,67.3 Q149.8,66.6 149.3,65.9 Q148.8,65.2 149.7,64.5 Q150.5,63.8 151.4,64.0 Q152.4,64.1 153.4,64.3 Q154.3,64.5 154.5,65.3 Z" fill="#2f2d31"/><path d="M135.3,88.0 Q135.3,88.0 134.8,88.7 Q134.2,89.5 133.3,89.8 Q132.4,90.1 131.3,90.3 Q130.3,90.4 129.8,89.6 Q129.3,88.7 129.8,88.0 Q130.3,87.4 130.5,86.8 Q130.7,86.2 131.6,86.0 Q132.5,85.8 133.1,86.3 Q133.7,86.8 134.5,87.4 Z" fill="#2f2d31"/><path d="M173.8,88.0 Q173.8,88.0 174.0,88.8 Q174.1,89.6 173.3,89.8 Q172.5,89.9 171.6,89.8 Q170.7,89.7 170.1,89.3 Q169.6,88.8 169.8,88.1 Q170.1,87.4 170.3,86.7 Q170.6,85.9 171.5,86.0 Q172.4,86.1 173.0,86.5 Q173.5,86.9 173.7,87.5 Z" fill="#2f2d31"/></g><path d="M10,78 C10,70 12,66 16,64 C22,58 28,54 36,52 L34,36 L48,50 L56,50 L62,34 L72,50 C82,50 92,48 104,48 C120,50 140,52 160,48 C176,46 190,50 196,60 C202,68 202,78 198,88 C196,94 192,100 190,108 L197,126 C199,133 192,138 186,136 L178,134 L178,112 C176,102 172,98 166,98 L158,98 L152,124 C150,132 140,135 136,133 L138,112 L140,100 C128,102 112,102 100,100 L102,124 C102,132 92,135 86,133 L86,110 L88,100 L80,100 L69,122 C66,130 56,133 51,129 L56,108 L62,96 C56,92 48,90 42,88 C34,92 24,94 14,90 C10,88 10,82 10,78 Z" fill="none" stroke="#2f2d31" stroke-width="6.5" stroke-linejoin="round" stroke-linecap="round"/><path d="M194,64 C214,62 228,50 228,34 C228,20 216,12 206,18 C198,23 202,34 210,32 C215,31 216,24 211,23" fill="none" stroke="#2f2d31" stroke-width="10" stroke-linecap="round"/><path d="M228,36 C228,20 216,12 206,18 C198,23 202,34 210,32 C215,31 216,24 211,23" fill="none" stroke="#2f2d31" stroke-width="7.6" stroke-linecap="round"/><path d="M223.5,46 L231.5,44" fill="none" stroke="#b9a98c" stroke-width="2.6" stroke-linecap="round"/><path d="M226.5,40 L232.5,36.5" fill="none" stroke="#b9a98c" stroke-width="2.6" stroke-linecap="round"/><path d="M12,82 L40,83" fill="none" stroke="#2f2d31" stroke-width="4" stroke-linecap="round"/><g fill="#2f2d31"><path d="M17,82 L20,89 L24,82 Z"/><path d="M28,82.5 L31,89 L35,83 Z"/></g><path d="M10,74 L-8,68 M10,80 L-10,80 M12,86 L-6,93" fill="none" stroke="#2f2d31" stroke-width="3.6" stroke-linecap="round"/><circle cx="34" cy="67" r="7.5" fill="none" stroke="#2f2d31" stroke-width="3.6"/><circle cx="35.5" cy="67.5" r="3.6" fill="#2f2d31"/><path d="M54,131 L52,137 M60,132 L59,138 M89,135 L89,141 M96,135 L97,141 M139,135 L139,141 M146,135 L147,141 M189,137 L190,143 M196,136 L198,142" fill="none" stroke="#2f2d31" stroke-width="3.6" stroke-linecap="round"/></g></svg><div><h1>pipos<span>.</span></h1><div class="sub">ric · gabi · guto · pipoca</div></div></header>
+<header><img class="onca" src="onca.svg" alt="onça do pipos"><div><h1>pipos<span>.</span></h1><div class="sub">ric · gabi · guto · pipoca</div></div></header>
 <main>
 <section id="inicio" class="tab on">
   <div class="card hero"><div class="eyebrow">próxima viagem</div><div class="dest">lisboa</div><div class="when">12 → 20 de dezembro · tap/voo 15h40</div><div class="count"><b>56</b><small>dias</small></div></div>
@@ -134,10 +164,40 @@ nav button.on{color:var(--terra);background:#f6d9d2}
   <p class="tag">· importado dos seus my maps (cwb + são paulo) ·</p>
 </section>
 <section id="listas" class="tab">
+  <h2>presentes</h2>
+  <div class="pes" id="pes"></div>
+  <div class="card">
+    <div class="form">
+      <input class="campo" id="pr-nome" placeholder="o que você quer ganhar?" maxlength="120">
+      <input class="campo" id="pr-link" placeholder="link (opcional)" inputmode="url" maxlength="400">
+      <button class="btn" id="pr-add" style="justify-content:center">adicione à lista</button>
+    </div>
+    <div id="pr-lista"></div>
+  </div>
+
   <h2>mercado</h2>
   <div class="card"><ul class="list"><li><span class="chk"></span><span>café</span></li><li><span class="chk"></span><span>azeite</span></li><li class="done"><span class="chk"></span><span>ração</span></li></ul></div>
   <h2>casa</h2>
   <div class="card"><ul class="list"><li><span class="chk"></span><span>bios do dell (ac recovery)</span></li><li><span class="chk"></span><span>conector da câmera da piscina</span></li></ul></div>
+</section>
+
+<section id="reclama" class="tab">
+  <div class="card hero"><div class="eyebrow">livro de reclamações</div><div class="dest">da casa</div><div class="when">desabafe aqui · sem briga, só registro 😅</div><div class="count"><b id="rc-abertas">0</b><small>abertas</small></div></div>
+  <h2>nova reclamação</h2>
+  <div class="card"><div class="form">
+    <div class="pes" id="rc-quem" style="padding-bottom:2px"></div>
+    <textarea class="campo" id="rc-texto" placeholder="o que está incomodando?" maxlength="500"></textarea>
+    <div class="niv" id="rc-niv">
+      <button data-n="1" class="on">🙂 leve</button><button data-n="2">😤 chato</button><button data-n="3">🔥 urgente</button>
+    </div>
+    <button class="btn" id="rc-add" style="justify-content:center">registre a reclamação</button>
+  </div></div>
+  <h2>quem mais reclama</h2>
+  <div class="placar" id="rc-placar"></div>
+  <h2>abertas</h2>
+  <div id="rc-lista"></div>
+  <h2>resolvidas</h2>
+  <div id="rc-feitas"></div>
 </section>
 </main>
 <nav>
@@ -146,6 +206,7 @@ nav button.on{color:var(--terra);background:#f6d9d2}
   <button data-t="casa"><b>⌂</b>casa</button>
   <button data-t="comer"><b>🍽</b>comer</button>
   <button data-t="listas"><b>☰</b>listas</button>
+  <button data-t="reclama"><b>📣</b>reclama</button>
 </nav></div>
 <script>
 function go(t){document.querySelectorAll('.tab').forEach(s=>s.classList.toggle('on',s.id===t));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));document.querySelector('main').scrollTo(0,0);}
@@ -160,5 +221,53 @@ function renderComer(){var q=document.getElementById('f-busca').value.toLowerCas
 document.querySelectorAll('.cid').forEach(b=>b.onclick=()=>{sel.c.has(b.dataset.c)?sel.c.delete(b.dataset.c):sel.c.add(b.dataset.c);renderComer();});
 document.querySelectorAll('.chip').forEach(b=>b.onclick=()=>{sel.k=b.dataset.k;renderComer();});
 document.getElementById('f-busca').addEventListener('input',renderComer);renderComer();
+</script>
+
+<script>
+(function(){
+  var GENTE=[{id:'ric',n:'ric'},{id:'gabi',n:'gabi'},{id:'guto',n:'guto'},{id:'pipoca',n:'pipoca 🐶'}];
+  function ler(k,padrao){try{var v=localStorage.getItem(k);return v?JSON.parse(v):padrao}catch(e){return padrao}}
+  function gravar(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+  function linkOk(u){return /^https?:\/\//i.test(u)?u:(u&&/^[\w-]+(\.[\w-]+)+/.test(u)?'https://'+u:'')}
+  function quando(ts){var d=new Date(ts);return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})}
+  function nome(id){var g=GENTE.filter(function(x){return x.id===id})[0];return g?g.n:id}
+
+  /* presentes */
+  var PR=ler('pipos.presentes',null);
+  if(!PR){PR={ric:[],gabi:[],guto:[],pipoca:[{t:'osso de couro gigante',l:'',ok:false,ts:Date.now()}]};gravar('pipos.presentes',PR)}
+  var dono=ler('pipos.presentes.aba','ric');
+  function pintaPes(){document.getElementById('pes').innerHTML=GENTE.map(function(g){var n=(PR[g.id]||[]).filter(function(i){return !i.ok}).length;return '<button data-p="'+g.id+'" class="'+(g.id===dono?'on':'')+'">'+g.n+(n?' · '+n:'')+'</button>'}).join('');
+    document.querySelectorAll('#pes button').forEach(function(b){b.onclick=function(){dono=b.dataset.p;gravar('pipos.presentes.aba',dono);rPres()}})}
+  function rPres(){pintaPes();var l=PR[dono]||[];var el=document.getElementById('pr-lista');
+    document.getElementById('pr-nome').placeholder=dono==='pipoca'?'o que a pipoca quer ganhar? 🦴':'o que '+nome(dono)+' quer ganhar?';
+    if(!l.length){el.innerHTML='<div class="vazio">a lista de '+esc(nome(dono))+' está vazia. adicione o primeiro presente.</div>';return}
+    el.innerHTML=l.map(function(i,k){return '<div class="item'+(i.ok?' done':'')+'"><span class="chk" data-k="'+k+'" title="já comprado"></span><div class="txt"><b>'+esc(i.t)+'</b>'+(i.l?'<br><a href="'+esc(i.l)+'" target="_blank" rel="noopener">ver link ↗</a>':'')+'</div><button class="x" data-k="'+k+'" title="remover">×</button></div>'}).join('');
+    el.querySelectorAll('.chk').forEach(function(c){c.onclick=function(){var i=l[+c.dataset.k];i.ok=!i.ok;gravar('pipos.presentes',PR);rPres()}});
+    el.querySelectorAll('.x').forEach(function(b){b.onclick=function(){l.splice(+b.dataset.k,1);gravar('pipos.presentes',PR);rPres()}})}
+  document.getElementById('pr-add').onclick=function(){var n=document.getElementById('pr-nome'),lk=document.getElementById('pr-link');var t=n.value.trim();if(!t){n.focus();return}
+    (PR[dono]=PR[dono]||[]).push({t:t,l:linkOk(lk.value.trim()),ok:false,ts:Date.now()});gravar('pipos.presentes',PR);n.value='';lk.value='';rPres()};
+  document.getElementById('pr-nome').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('pr-add').click()});
+  rPres();
+
+  /* reclamações */
+  var RC=ler('pipos.reclama',[]);var quem=ler('pipos.reclama.quem','ric');var niv=1;
+  var NIV={1:'🙂 leve',2:'😤 chato',3:'🔥 urgente'};
+  function pintaQuem(){document.getElementById('rc-quem').innerHTML=GENTE.map(function(g){return '<button data-p="'+g.id+'" class="'+(g.id===quem?'on':'')+'">'+g.n+'</button>'}).join('');
+    document.querySelectorAll('#rc-quem button').forEach(function(b){b.onclick=function(){quem=b.dataset.p;gravar('pipos.reclama.quem',quem);pintaQuem();document.getElementById('rc-texto').placeholder=quem==='pipoca'?'au au au… (o que está incomodando a pipoca?)':'o que está incomodando?'}})}
+  document.querySelectorAll('#rc-niv button').forEach(function(b){b.onclick=function(){niv=+b.dataset.n;document.querySelectorAll('#rc-niv button').forEach(function(x){x.classList.toggle('on',x===b)})}});
+  function card(r,k){return '<div class="rec n'+r.n+(r.ok?' ok':'')+'"><div class="top"><span><b style="color:var(--cafe)">'+esc(nome(r.q))+'</b> · '+NIV[r.n]+'</span><span>'+quando(r.ts)+(r.ok&&r.tok?' → '+quando(r.tok):'')+'</span></div><div class="t">'+esc(r.t)+'</div><div class="acoes"><button data-a="ok" data-k="'+k+'">'+(r.ok?'↺ reabrir':'✓ resolvido')+'</button><button data-a="x" data-k="'+k+'">apagar</button></div></div>'}
+  function rRec(){pintaQuem();var ab=[],fe=[];RC.forEach(function(r,k){(r.ok?fe:ab).push(card(r,k))});
+    document.getElementById('rc-lista').innerHTML=ab.length?ab.reverse().join(''):'<div class="card vazio">nenhuma reclamação aberta. paz na casa ✨</div>';
+    document.getElementById('rc-feitas').innerHTML=fe.length?fe.reverse().join(''):'<div class="vazio">nada resolvido ainda.</div>';
+    document.getElementById('rc-abertas').textContent=RC.filter(function(r){return !r.ok}).length;
+    var cont={};RC.forEach(function(r){if(!r.ok)cont[r.q]=(cont[r.q]||0)+1});
+    document.getElementById('rc-placar').innerHTML=GENTE.map(function(g){return '<div class="card"><b>'+(cont[g.id]||0)+'</b><span class="muted">'+g.n+'</span></div>'}).join('');
+    document.querySelectorAll('#reclama .acoes button').forEach(function(b){b.onclick=function(){var k=+b.dataset.k;if(b.dataset.a==='x'){if(!confirm('apagar essa reclamação?'))return;RC.splice(k,1)}else{RC[k].ok=!RC[k].ok;RC[k].tok=RC[k].ok?Date.now():null}gravar('pipos.reclama',RC);rRec()}})}
+  document.getElementById('rc-add').onclick=function(){var t=document.getElementById('rc-texto');var v=t.value.trim();if(!v){t.focus();return}
+    RC.push({q:quem,t:v,n:niv,ok:false,ts:Date.now()});gravar('pipos.reclama',RC);t.value='';rRec();window.scrollTo(0,0);document.querySelector('main').scrollTo(0,0)};
+  rRec();
+  ['listas','reclama'].forEach(function(id){var s=document.getElementById(id);var a=document.createElement('p');a.className='aviso';a.textContent='· protótipo: por enquanto fica salvo só neste aparelho ·';s.appendChild(a)});
+})();
 </script>
 </body></html>
