@@ -66,7 +66,7 @@ textarea.campo{min-height:76px;resize:vertical;line-height:1.4}
 .niv{display:flex;gap:6px}.niv button{flex:1;padding:9px 4px;border-radius:12px;border:1.5px solid var(--linha);background:var(--papel);font:inherit;font-size:12px;color:var(--cafe);cursor:pointer;text-transform:lowercase}
 .niv button.on{border-color:var(--cafe);background:var(--cafe);color:#f6efe2}
 .rec{background:var(--papel);border:1px solid var(--linha);border-radius:18px;padding:14px 16px;margin-bottom:10px;border-left:5px solid var(--kraft)}
-.rec.n2{border-left-color:#d99a3c}.rec.n3{border-left-color:var(--terra)}
+.rec.n3{border-left-color:var(--terra)}.rec.n4{border-left-color:var(--ok);background:#f1f6ee}
 .rec.ok{opacity:.55}.rec.ok .t{text-decoration:line-through}
 .rec .top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--cafe2);margin-bottom:6px}
 .rec .t{font-size:15px;line-height:1.45;text-transform:none;word-wrap:break-word}
@@ -182,17 +182,17 @@ textarea.campo{min-height:76px;resize:vertical;line-height:1.4}
 </section>
 
 <section id="reclama" class="tab">
-  <div class="card hero"><div class="eyebrow">livro de reclamações</div><div class="dest">da casa</div><div class="when">desabafe aqui · sem briga, só registro 😅</div><div class="count"><b id="rc-abertas">0</b><small>abertas</small></div></div>
-  <h2>nova reclamação</h2>
+  <div class="card hero"><div class="eyebrow">ric &amp; gabi</div><div class="dest">reclama</div><div class="when">desabafe ou elogie · sem briga, só registro 😅</div><div class="count"><b id="rc-abertas">0</b><small>abertas</small></div></div>
+  <h2>novo recado</h2>
   <div class="card"><div class="form">
     <div class="pes" id="rc-quem" style="padding-bottom:2px"></div>
-    <textarea class="campo" id="rc-texto" placeholder="o que está incomodando?" maxlength="500"></textarea>
+    <textarea class="campo" id="rc-texto" placeholder="o que está incomodando (ou o que você quer elogiar)?" maxlength="500"></textarea>
     <div class="niv" id="rc-niv">
-      <button data-n="1" class="on">🙂 leve</button><button data-n="2">😤 chato</button><button data-n="3">🔥 urgente</button>
+      <button data-n="1" class="on">🙂 leve</button><button data-n="3">🔥 urgente</button><button data-n="4">💛 elogio</button>
     </div>
-    <button class="btn" id="rc-add" style="justify-content:center">registre a reclamação</button>
+    <button class="btn" id="rc-add" style="justify-content:center">registre</button>
   </div></div>
-  <h2>quem mais reclama</h2>
+  <h2>placar</h2>
   <div class="placar" id="rc-placar"></div>
   <h2>abertas</h2>
   <div id="rc-lista"></div>
@@ -235,12 +235,13 @@ document.getElementById('f-busca').addEventListener('input',renderComer);renderC
 
   /* presentes */
   var PR=ler('pipos.presentes',null);
-  if(!PR){PR={ric:[],gabi:[],guto:[],pipoca:[{t:'osso de couro gigante',l:'',ok:false,ts:Date.now()}]};gravar('pipos.presentes',PR)}
-  var dono=ler('pipos.presentes.aba','ric');
-  function pintaPes(){document.getElementById('pes').innerHTML=GENTE.map(function(g){var n=(PR[g.id]||[]).filter(function(i){return !i.ok}).length;return '<button data-p="'+g.id+'" class="'+(g.id===dono?'on':'')+'">'+g.n+(n?' · '+n:'')+'</button>'}).join('');
+  if(!PR){PR={ric:[],gabi:[],guto:[]};gravar('pipos.presentes',PR)}
+  var FAMILIA=GENTE.filter(function(g){return g.id!=='pipoca'});
+  var dono=ler('pipos.presentes.aba','ric');if(!FAMILIA.some(function(g){return g.id===dono}))dono='ric';
+  function pintaPes(){document.getElementById('pes').innerHTML=FAMILIA.map(function(g){var n=(PR[g.id]||[]).filter(function(i){return !i.ok}).length;return '<button data-p="'+g.id+'" class="'+(g.id===dono?'on':'')+'">'+g.n+(n?' · '+n:'')+'</button>'}).join('');
     document.querySelectorAll('#pes button').forEach(function(b){b.onclick=function(){dono=b.dataset.p;gravar('pipos.presentes.aba',dono);rPres()}})}
   function rPres(){pintaPes();var l=PR[dono]||[];var el=document.getElementById('pr-lista');
-    document.getElementById('pr-nome').placeholder=dono==='pipoca'?'o que a pipoca quer ganhar? 🦴':'o que '+nome(dono)+' quer ganhar?';
+    document.getElementById('pr-nome').placeholder='o que '+nome(dono)+' quer ganhar?';
     if(!l.length){el.innerHTML='<div class="vazio">a lista de '+esc(nome(dono))+' está vazia. adicione o primeiro presente.</div>';return}
     el.innerHTML=l.map(function(i,k){return '<div class="item'+(i.ok?' done':'')+'"><span class="chk" data-k="'+k+'" title="já comprado"></span><div class="txt"><b>'+esc(i.t)+'</b>'+(i.l?'<br><a href="'+esc(i.l)+'" target="_blank" rel="noopener">ver link ↗</a>':'')+'</div><button class="x" data-k="'+k+'" title="remover">×</button></div>'}).join('');
     el.querySelectorAll('.chk').forEach(function(c){c.onclick=function(){var i=l[+c.dataset.k];i.ok=!i.ok;gravar('pipos.presentes',PR);rPres()}});
@@ -251,18 +252,18 @@ document.getElementById('f-busca').addEventListener('input',renderComer);renderC
   rPres();
 
   /* reclamações */
-  var RC=ler('pipos.reclama',[]);var quem=ler('pipos.reclama.quem','ric');var niv=1;
-  var NIV={1:'🙂 leve',2:'😤 chato',3:'🔥 urgente'};
-  function pintaQuem(){document.getElementById('rc-quem').innerHTML=GENTE.map(function(g){return '<button data-p="'+g.id+'" class="'+(g.id===quem?'on':'')+'">'+g.n+'</button>'}).join('');
-    document.querySelectorAll('#rc-quem button').forEach(function(b){b.onclick=function(){quem=b.dataset.p;gravar('pipos.reclama.quem',quem);pintaQuem();document.getElementById('rc-texto').placeholder=quem==='pipoca'?'au au au… (o que está incomodando a pipoca?)':'o que está incomodando?'}})}
+  var RC=ler('pipos.reclama',[]);var CASAL=GENTE.filter(function(g){return g.id==='ric'||g.id==='gabi'});var quem=ler('pipos.reclama.quem','ric');if(quem!=='ric'&&quem!=='gabi')quem='ric';var niv=1;
+  var NIV={1:'🙂 leve',2:'🙂 leve',3:'🔥 urgente',4:'💛 elogio'};
+  function pintaQuem(){document.getElementById('rc-quem').innerHTML=CASAL.map(function(g){return '<button data-p="'+g.id+'" class="'+(g.id===quem?'on':'')+'">'+g.n+'</button>'}).join('');
+    document.querySelectorAll('#rc-quem button').forEach(function(b){b.onclick=function(){quem=b.dataset.p;gravar('pipos.reclama.quem',quem);pintaQuem()}})}
   document.querySelectorAll('#rc-niv button').forEach(function(b){b.onclick=function(){niv=+b.dataset.n;document.querySelectorAll('#rc-niv button').forEach(function(x){x.classList.toggle('on',x===b)})}});
-  function card(r,k){return '<div class="rec n'+r.n+(r.ok?' ok':'')+'"><div class="top"><span><b style="color:var(--cafe)">'+esc(nome(r.q))+'</b> · '+NIV[r.n]+'</span><span>'+quando(r.ts)+(r.ok&&r.tok?' → '+quando(r.tok):'')+'</span></div><div class="t">'+esc(r.t)+'</div><div class="acoes"><button data-a="ok" data-k="'+k+'">'+(r.ok?'↺ reabrir':'✓ resolvido')+'</button><button data-a="x" data-k="'+k+'">apagar</button></div></div>'}
+  function card(r,k){return '<div class="rec n'+r.n+(r.ok?' ok':'')+'"><div class="top"><span><b style="color:var(--cafe)">'+esc(nome(r.q))+'</b> · '+NIV[r.n]+'</span><span>'+quando(r.ts)+(r.ok&&r.tok?' → '+quando(r.tok):'')+'</span></div><div class="t">'+esc(r.t)+'</div><div class="acoes"><button data-a="ok" data-k="'+k+'">'+(r.ok?'↺ reabrir':(r.n===4?'💛 recebido':'✓ resolvido'))+'</button><button data-a="x" data-k="'+k+'">apagar</button></div></div>'}
   function rRec(){pintaQuem();var ab=[],fe=[];RC.forEach(function(r,k){(r.ok?fe:ab).push(card(r,k))});
-    document.getElementById('rc-lista').innerHTML=ab.length?ab.reverse().join(''):'<div class="card vazio">nenhuma reclamação aberta. paz na casa ✨</div>';
+    document.getElementById('rc-lista').innerHTML=ab.length?ab.reverse().join(''):'<div class="card vazio">nada em aberto. paz na casa ✨</div>';
     document.getElementById('rc-feitas').innerHTML=fe.length?fe.reverse().join(''):'<div class="vazio">nada resolvido ainda.</div>';
-    document.getElementById('rc-abertas').textContent=RC.filter(function(r){return !r.ok}).length;
-    var cont={};RC.forEach(function(r){if(!r.ok)cont[r.q]=(cont[r.q]||0)+1});
-    document.getElementById('rc-placar').innerHTML=GENTE.map(function(g){return '<div class="card"><b>'+(cont[g.id]||0)+'</b><span class="muted">'+g.n+'</span></div>'}).join('');
+    document.getElementById('rc-abertas').textContent=RC.filter(function(r){return !r.ok&&r.n!==4}).length;
+    var cont={},elo={};RC.forEach(function(r){if(r.n===4)elo[r.q]=(elo[r.q]||0)+1;else if(!r.ok)cont[r.q]=(cont[r.q]||0)+1});
+    document.getElementById('rc-placar').innerHTML=CASAL.map(function(g){return '<div class="card"><span class="muted" style="font-weight:700;color:var(--cafe)">'+g.n+'</span><div style="display:flex;justify-content:center;gap:18px;margin-top:6px"><span><b>'+(cont[g.id]||0)+'</b><span class="muted">reclamações</span></span><span><b style="color:var(--ok)">'+(elo[g.id]||0)+'</b><span class="muted">elogios</span></span></div></div>'}).join('');
     document.querySelectorAll('#reclama .acoes button').forEach(function(b){b.onclick=function(){var k=+b.dataset.k;if(b.dataset.a==='x'){if(!confirm('apagar essa reclamação?'))return;RC.splice(k,1)}else{RC[k].ok=!RC[k].ok;RC[k].tok=RC[k].ok?Date.now():null}gravar('pipos.reclama',RC);rRec()}})}
   document.getElementById('rc-add').onclick=function(){var t=document.getElementById('rc-texto');var v=t.value.trim();if(!v){t.focus();return}
     RC.push({q:quem,t:v,n:niv,ok:false,ts:Date.now()});gravar('pipos.reclama',RC);t.value='';rRec();window.scrollTo(0,0);document.querySelector('main').scrollTo(0,0)};
