@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F5F0E8">
+<link rel="icon" href="onca-icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="onca-icone-180.png">
+<title>guto pós-op</title>
+<style>
+  :root{
+    --terra:#C9412D; --areia:#F5F0E8; --areia2:#E8E0D0;
+    --card:#E9E0CE; --borda:#D2C5AD; --lit:#DCC4A0; --litb:#997452;
+    --tx:#2b2220; --tx2:#6b5d55;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--areia);color:var(--tx);
+    font-family:Helvetica,"Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.45;text-transform:lowercase}
+  .wrap{max-width:560px;margin:0 auto;padding:18px 14px 40px}
+  header{background:var(--terra);color:#fff;border-radius:18px;padding:18px 18px 16px;margin-bottom:14px}
+  header h1{margin:0;font-size:24px;letter-spacing:-.3px}
+  header p{margin:4px 0 0;opacity:.9;font-size:13px}
+  .dia{display:inline-block;margin-top:10px;background:rgba(255,255,255,.18);padding:4px 10px;border-radius:99px;font-size:13px;font-weight:bold}
+  .card{background:var(--card);border:1px solid var(--borda);border-radius:16px;padding:14px 15px;margin-bottom:12px}
+  .card h2{margin:0 0 8px;font-size:16px;color:var(--terra)}
+  .alerta{background:#fff;border:2px solid var(--terra)}
+  .alerta h2{color:var(--terra)}
+  ul{margin:0;padding-left:18px} li{margin:3px 0}
+  .tels{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .tels a{flex:1;min-width:140px;text-align:center;text-decoration:none;background:var(--terra);color:#fff;
+    padding:11px 8px;border-radius:12px;font-weight:bold;font-size:14px;white-space:nowrap}
+  .tels a.sec{background:var(--lit);color:var(--tx);border:1px solid var(--litb)}
+  .rem{font-size:13px;color:var(--tx2);margin:0 0 8px}
+  .doses{display:grid;grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:6px}
+  .dose{display:flex;align-items:center;gap:6px;background:var(--areia);border:1px solid var(--borda);
+    border-radius:10px;padding:8px 8px;font-size:13px;cursor:pointer;user-select:none;white-space:nowrap}
+  .dose input{accent-color:var(--terra);width:17px;height:17px;margin:0}
+  .dose.ok{background:var(--lit);border-color:var(--litb)}
+  .dose.ok span{text-decoration:line-through;opacity:.7}
+  .prox{font-size:13px;margin-top:8px;color:var(--tx2)}
+  .prox b{color:var(--terra)}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  td{padding:6px 4px;border-bottom:1px solid var(--borda);white-space:nowrap}
+  td:last-child{text-align:right;color:var(--tx2)}
+  .fase{display:grid;grid-template-columns:104px 1fr;gap:4px 10px;font-size:14px}
+  .fase b{color:var(--terra);white-space:nowrap}
+  .tag{display:inline-block;font-size:12px;background:var(--areia);border:1px solid var(--borda);border-radius:99px;padding:2px 8px;margin:2px 2px 0 0;white-space:nowrap}
+  .tag.nao{border-color:var(--terra);color:var(--terra)}
+  .reset{background:none;border:none;color:var(--tx2);font-size:12px;text-decoration:underline;margin-top:8px;padding:0;cursor:pointer;font-family:inherit}
+  footer{font-size:12px;color:var(--tx2);text-align:center;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>guto · pós-op</h1>
+  <p>adenoide, amígdalas e 2 tubinhos · hospital pequeno príncipe · 07/11/2026</p>
+  <span class="dia" id="dia">pós-op</span>
+</header>
+
+<div class="card alerta">
+  <h2>ligar na hora</h2>
+  <ul>
+    <li><b>sangue vermelho vivo</b> pela boca ou nariz</li>
+    <li>não aceita líquido, pouco xixi, boca seca, choro sem lágrima</li>
+    <li>febre acima de 38,5 °c que não baixa com o remédio</li>
+    <li>dificuldade para respirar</li>
+  </ul>
+  <div class="tels">
+    <a href="tel:+5541988145508">dr rodrigo</a>
+    <a class="sec" href="https://wa.me/5541988145508">whatsapp</a>
+    <a class="sec" href="tel:+554133101010">hpp</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>tylenol bebê · 2 mL na seringa</h2>
+  <p class="rem">a cada 6h, fixo até terça 12h30. depois só se tiver dor. não dar junto com o tylenol gotas.</p>
+  <div class="doses" data-grupo="ty"></div>
+  <div class="prox" id="prox-ty"></div>
+</div>
+
+<div class="card">
+  <h2>ciloxan nos ouvidos · 3 gotas cada lado</h2>
+  <p class="rem">a cada 8h, até terça 10h (1ª dose sáb 17h44). aquecer o frasco na mão, deitar de lado, puxar a orelha para trás e para cima, esperar 2 min.</p>
+  <div class="doses" data-grupo="ci"></div>
+  <div class="prox" id="prox-ci"></div>
+  <button class="reset" onclick="limpar()">limpar marcações</button>
+</div>
+
+<div class="card">
+  <h2>comida</h2>
+  <div class="fase">
+    <b>até seg</b><span>só líquido e pastoso <b>frio</b>: sorvete, picolé, gelatina, iogurte, pudim, vitamina, purê frio</span>
+    <b>a partir de ter</b><span>pastoso morno: purê, sopa batida, ovo mexido mole, arroz bem cozido, macarrão mole</span>
+  </div>
+  <div style="margin-top:10px">
+    <span class="tag nao">cítricos</span><span class="tag nao">crocantes</span><span class="tag nao">bolacha e torrada</span><span class="tag nao">pipoca</span><span class="tag nao">apimentado</span><span class="tag nao">muito quente</span>
+  </div>
+  <p class="rem" style="margin:10px 0 0">beber é mais importante que comer. picolé conta como líquido.</p>
+</div>
+
+<div class="card">
+  <h2>temperatura</h2>
+  <table>
+    <tr><td>até 37,5 °c</td><td>normal</td></tr>
+    <tr><td>37,6 a 37,9 °c</td><td>comum nas primeiras 48h</td></tr>
+    <tr><td>38 °c ou mais</td><td>febre, anotar e observar</td></tr>
+    <tr><td>acima de 38,5 °c</td><td>ligar se não baixar</td></tr>
+  </table>
+  <p class="rem" style="margin:8px 0 0">medir antes da dose do tylenol. depois de sorvete, esperar 20 min se for na boca.</p>
+</div>
+
+<div class="card">
+  <h2>o que é normal</h2>
+  <ul>
+    <li>vômito escuro tipo borra de café no 1º dia</li>
+    <li>placas brancas no fundo da garganta</li>
+    <li>mau hálito e ronco nos primeiros dias</li>
+    <li>dor de ouvido (vem da garganta), tratar só com o tylenol</li>
+    <li>um pouco de secreção nos ouvidos por causa dos tubinhos</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h2>linha do tempo</h2>
+  <div class="fase">
+    <b>dias 1 a 3</b><span>mais dor, remédio no horário, comida fria</span>
+    <b>dias 4 a 5</b><span>dor pode voltar a aumentar, é esperado</span>
+    <b>dias 5 a 10</b><span>casquinhas caem, <b>atenção redobrada a sangramento</b></span>
+    <b>até 17/11</b><span>repouso relativo: sem bicicleta, bola ou esforço</span>
+  </div>
+</div>
+
+<div class="card">
+  <h2>dicas</h2>
+  <ul>
+    <li>tylenol no horário, mesmo dormindo nas primeiras noites</li>
+    <li>umidificador no quarto ajuda a garganta</li>
+    <li>travesseiro um pouco mais alto para dormir</li>
+    <li>oferecer líquido a cada hora acordado</li>
+    <li>perguntar ao médico sobre água no ouvido no banho</li>
+    <li>brincadeiras calmas: livros, massinha, desenho, quebra-cabeça</li>
+  </ul>
+</div>
+
+<footer>receita do dr rodrigo guimarães pereira · crm/pr 15627</footer>
+</div>
+
+<script>
+const ano = 2026, mes = 10; // novembro (0-index)
+const grupos = {
+  ty: [[7,18,30],[8,0,30],[8,6,30],[8,12,30],[8,18,30],[9,0,30],[9,6,30],[9,12,30],[9,18,30],[10,0,30],[10,6,30],[10,12,30]],
+  ci: [[7,18,0],[8,2,0],[8,10,0],[8,18,0],[9,2,0],[9,10,0],[9,18,0],[10,2,0],[10,10,0]]
+};
+const dias = ['dom','seg','ter','qua','qui','sex','sáb'];
+let st = {};
+try { st = JSON.parse(localStorage.getItem('guto_posop') || '{}'); } catch(e) {}
+function salvar(){ try { localStorage.setItem('guto_posop', JSON.stringify(st)); } catch(e) {} }
+function hh(h,m){ return String(h).padStart(2,'0') + 'h' + (m? String(m).padStart(2,'0'):''); }
+function render(){
+  const agora = new Date();
+  for (const g in grupos){
+    const box = document.querySelector('[data-grupo="'+g+'"]');
+    box.innerHTML = '';
+    let prox = null;
+    grupos[g].forEach(([d,h,m]) => {
+      const k = g+'-'+d+'-'+h, dt = new Date(ano,mes,d,h,m);
+      const el = document.createElement('label');
+      el.className = 'dose' + (st[k] ? ' ok' : '');
+      el.innerHTML = '<input type="checkbox"'+(st[k]?' checked':'')+'><span>'+dias[dt.getDay()]+' '+hh(h)+'</span>';
+      el.querySelector('input').onchange = e => { st[k] = e.target.checked; salvar(); render(); };
+      box.appendChild(el);
+      if (!st[k] && !prox) prox = dt;
+    });
+    const p = document.getElementById('prox-'+g);
+    if (!prox) { p.innerHTML = 'todas as doses fixas feitas'; continue; }
+    const min = Math.round((prox - agora)/60000);
+    const quando = dias[prox.getDay()]+' '+hh(prox.getHours(),prox.getMinutes());
+    p.innerHTML = min < 0 ? 'próxima: <b>'+quando+'</b> (atrasada)' :
+      'próxima: <b>'+quando+'</b> · em '+(min>=60? Math.floor(min/60)+'h'+String(min%60).padStart(2,'0') : min+' min');
+  }
+  const d0 = new Date(ano,mes,7), hoje = new Date(); hoje.setHours(0,0,0,0);
+  const n = Math.round((hoje - d0)/86400000);
+  document.getElementById('dia').textContent = n <= 0 ? 'dia da cirurgia' : n+'º dia de pós-op';
+}
+function limpar(){ st = {}; salvar(); render(); }
+render(); setInterval(render, 60000);
+</script>
+</body>
+</html>
